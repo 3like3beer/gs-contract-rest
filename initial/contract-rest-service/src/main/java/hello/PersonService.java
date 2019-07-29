@@ -20,4 +20,10 @@ class PersonService {
 	Person findPersonById(Long id) {
 		return personMap.get(id);
 	}
+
+	Person createPerson(Person person) {
+		Long id = personMap.keySet().stream().max(Long::compare).get() + 1;
+		personMap.put(id, person);
+		return personMap.get(id);
+	}
 }

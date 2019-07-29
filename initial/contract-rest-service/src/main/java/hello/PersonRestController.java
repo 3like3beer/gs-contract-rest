@@ -1,8 +1,6 @@
 package hello;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 class PersonRestController {
@@ -17,4 +15,8 @@ class PersonRestController {
 	public Person findPersonById(@PathVariable("id") Long id) {
 		return personService.findPersonById(id);
 	}
+
+	@PutMapping("/person")
+	public Person createPerson(@RequestParam Person person) { return personService.createPerson(person); }
+
 }
